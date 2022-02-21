@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Описание Pet-проектов
 
 <<<<<<< HEAD
@@ -29,6 +28,3 @@
 
 =======
 >>>>>>> bea436a5a4891bba43dd5ee9e21030f29284192a
-=======
-# portfolio
->>>>>>> parent of 55d2dae (create_timeSeries_session)

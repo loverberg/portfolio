@@ -8,6 +8,7 @@
 | E-commerce. Выявление профилей потребителей | *Целью исследования* является анализ пользовательского опыта в интернет-магазине товаров для дома и быта «Пока все ещё тут» для увеличения продаж и создания индивидуального подхода к потребителю |  `Pandas` `Numpy` `PyMystem` `Matplotlib` `Seaborn` `Scipy` `EDA` `лемматизация` `классификация` `проверка статистических гипотез` `продуктовые метрики` | [DataAnalyst.yandexPraktikum][4]
 | NLP: RNN + API + Docker + Oracle_Cloud | RNN для классификации слов, преобразована в функцию, принимающая запросы, и возвращающая результат прогноза. В свою очередь, функция использована для сервера API (бекенда) и размещена в контейнерe Docker | `Torch` `FastAPI` `Docker` `RNN` `NLP` `OracleCloud`| [MLOps.docker_rnn][5] |
 | Автоматизированный инструмент для анализа DS-вакансий | Комплексный инструмент для анализа вакансий Data Science (DataEngineer, MLEngineer, DataAnalyst), размещенных на портале HeadHunter, построен с поддержкой контейнеризации Docker | `API` `Docker` `regression` `EDA` `DataViz` | [DataAnalyst.skillsDS][6] |
+|Hive Star Schema Data Mart| Создание витрины данных с использованием инфраструктуры Hadoop (Hive) в облачном решении Yandex.Cloud| `S3` `HDFS` `HIVE` `MapReduce` `TEZ` `YARN` `HiveSQL` `CLI` `Shell` `Cloud` `Hadoop Cluster Administration`| [DataEngineer.Hive][7]|
 
 [1]:https://github.com/loverberg/portfolio/tree/main/BigDataMTC
 [2]:https://github.com/loverberg/megafon_analysis
@@ -15,3 +16,4 @@
 [4]:https://github.com/loverberg/portfolio/tree/main/yandexPraktikumFinalProject
 [5]:https://github.com/loverberg/docker_session_rnn
 [6]:https://github.com/loverberg/skillsDS
+[7]:https://github.com/loverberg/portfolio/tree/main/HiveStarSchemaDataMart

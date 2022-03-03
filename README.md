@@ -2,7 +2,7 @@
 
 | Название проекта | Описание |	Навыки и инструменты | Ссылка |
 | :--------------- | :------- | :------------------- | :----- |
-|Hive Star Schema Data Mart| Создание витрины данных с использованием инфраструктуры Hadoop (Hive) в облачном решении Yandex.Cloud| `S3` `HDFS` `HIVE` `MapReduce` `TEZ` `YARN` `HiveSQL` `CLI` `Shell` `Hadoop Cluster Administration`| [DataEngineer.Hive][7]|
+|Hive Star Schema Data Mart| Создание витрины данных с использованием инфраструктуры Hadoop (Hive) в Yandex.Cloud| `S3` `HDFS` `HIVE` `MapReduce` `TEZ` `YARN` `HiveSQL` `CLI` `Shell` `Hadoop Cluster Administration`| [DataEngineer.Hive][7]|
 | `тестовое` Вакансия Big Data МТС | *CRISP-DM* модели, предсказывающей отток, *оценка качества* модели и гипотетические перспективы использования в реальном бизнес процессе. | `PySpark.ml` `PySpark.sql` `PipelineViaSpark` `CatBoost` `XGBoost` `LGBM` `shap` `sklearn`| [MLEngineer.BigDataMTC][1] |
 | Аналитическое исследование для компании «Мегафон» | *Исследование направлено* на выявление технических показателей качества связи, которые влияют на удовлетворённость клиентов. Реализовано с применением распределенных вычислений. | `modin` `pandas` `plotly` `seaborn` `sklearn` `OrderedLogit` `statsmodels` `GLM&порядковыеДанные`  | [DataAnalyst.megafon_analysis][2] | 
 | Taming Big Data with Apache Spark | Лабораторные работы, выполненные в ходе изучения курса “Taming Big Data with Apache Spark and Python - Hands On!” | `PySpark.RDD` `Amazon Elastic MapReduce` `Hadoop` `YARN` `PySpark.MLLib` `PySpark.SQL` `Spark.Streaming` `broadcast` `GraphX` `Windows&StructuredStreaming`| [MLEngineer.BigDataWithApacheSpark][3] |

@@ -1,5 +1,5 @@
 CREATE MATERIALIZED VIEW yellow_taxi.datamart AS
-SELECT
+SELECT /*+ MAPJOIN(p) */ 
     p.name payment_type,
     to_date(tp.tpep_pickup_datetime),
     ROUND(AVG(tp.tip_amount), 2) tips_average_amount,

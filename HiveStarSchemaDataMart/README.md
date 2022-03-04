@@ -25,7 +25,7 @@
 2. *Копирование данных* на созданный бакет `s3` с помощью утилиты distcp, которая позволяет выполнить распределенное копирование данных между распределенными файловыми системами, использовал протокол - `s3a`. Это публичный бакет, возможен доступ без авторизации.
 3. *Определение иерархии Hive:*
 ---
-       - Database (yellow_taxi)
+          - Database (yellow_taxi)
                 - Table (payment - dimension table, input_data - fact table(input format), trip_part - fact table) 
                        - Partition (date) *опционально
                        - Bucket (не использую, т.к. не планирую использовать SMB (Sort Merge Bucket) Join) *опционально         

@@ -63,3 +63,4 @@
 [4]:https://github.com/loverberg/portfolio/blob/main/HiveStarSchemaDataMart/put_in_fact_table.hql
 [5]:https://github.com/loverberg/portfolio/blob/main/HiveStarSchemaDataMart/view.hql
 [6]:https://github.com/loverberg/portfolio/blob/main/HiveStarSchemaDataMart/run.sh
+[7]:https://github.com/loverberg/portfolio/blob/main/HiveStarSchemaDataMart/rebuld.sh

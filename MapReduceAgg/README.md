@@ -1,6 +1,6 @@
-# Hive.Create DataMart
+# MapReduce.Aggregation function
 
-#### Задача: Обеспечить постоянный доступ к холодным данным, создать схему `Star`, создать витрину вида:
+#### Задача: Написать map-reduce приложение, использующее данные Нью-Йоркского такси и вычисляющее среднее значение "чаевых" за каждый месяц 2020 года:
 
 | Payment type | Date |	Tips average amount | Passengers total |
 | :------------| :--- | :------------------ | :--------------- |
@@ -14,53 +14,21 @@
 
 ---
 
-
-
-
 ### Ход работы:
 1. *Разворачивание кластера Hadoop* с использованием облачного решения Yandex.Cloud:
   - Имплементация сервера на базе операционной системы Ubuntu (инсталировано: `HDFS` v. 3.2.2, `YARN` v. 3.2.2, `MapReduce` v.3.2.2, `Hive` v. 3.1.2, `TEZ` v. 0.10.0);
     NameNode: 1x4Cores&16RAM, DataNode: 3x4Cores&16RAM; Subcluster.Compute: 2x4Cores&16RAM.
   - Создание бакета на `s3`.
-2. *Копирование данных* на созданный бакет `s3` с помощью утилиты distcp, которая позволяет выполнить распределенное копирование данных между распределенными файловыми системами, использовал протокол - `s3a`. Это публичный бакет, возможен доступ без авторизации.
-3. *Определение иерархии Hive:*
----
-          - Database (yellow_taxi)
-                - Table (payment - dimension table, input_data - fact table(input format), trip_part - fact table) 
-                       - Partition (date) *опционально
-                       - Bucket (не использую, т.к. не планирую использовать SMB (Sort Merge Bucket) Join) *опционально         
-                - View (не планирую)
-                - Materialized view (в качестве Data Mart)
-                
-       *утилита доступа - Hive CLI
-       **таблицы будут созданны как внешние (`external`) для предотвращения потери данных
----
-4. [*Cоздании Database*][2] (базы данных). 
-5. [*Определение движка исполнения*][2] Hive - TEZ.
-6. [*Создание таблицы — справочника][2] "payment" согласно описанию формата данных. Формат хранения — parquet. Имена полей id и name.
-7. [*Наполнение dimension table.*][2]
-8. [*Создание таблицы*][3] поездок надстроенной над имеющимеся данными в формате `csv`.
-9. [*Создание таблицы фактов*][3] поездок партиционированные по дню начала поездки, формат хранения — `parquet`. Таким образом поиск нужных данных в таблице будет занимать нименьшее возможное время.
-10. [*Определение параметров для автоматического партицирования*][4] таблицы фактов (связано с дополнительными рисками).
-11. [*Трансформация и загрузка данных*][4] в таблицу фактов.
-12. [*Создание витрины данных*][5] с помощью материализованного представления, при джойне таблиц использован хинт `MAPJOIN`.
----
-Классический Join очень дорогая операция в Hive – требует сортировки обоих таблиц в MapReduce. При джойне больших таблиц, Hive может падать с ошибкой памяти. Hive позволяет MapReduce писать более лаконично. 
-
-использован `Map side Join`
-
-Для обеих таблиц запускаются mappers. Mappers, работающие с таблицей payment будет на выходе предоставлять пару ключ-значение. В качестве ключа будет использоваться id, в качестве значения - name. Mappers, работающие с таблицей поездок будут использовать фильтр и на выходе из них мы получаем ключ payment_type и значение - amount. Эти записи будут приходить на reducer, где мы уже получаем id, который для обеих таблиц по значению является одним и тем же, name из mappers, которые работали с таблицей payment и amount от mappers, работающих с таблицей поездок. Так как все ключи гарантированно на одном reducer, мы можем провести агрегацию по этим ключам и получить результат. 
-
----
-13. [*Создание сценария кома́ндной стрoки*][6] для автоматизации построения витрины.
-14. [*Rebuild*][7] витрины данных.
+2. [*Копирование данных*][1] на `HDFS` с помощью утилиты distcp, которая позволяет выполнить распределенное копирование данных между распределенными файловыми системами. Это публичный бакет, возможен доступ без авторизации.
+3. [*Разработка mapper.*][2]
+4. [*Разработка reducer*][3]. 
+5. [*Разработка shell-скрипта*][4] для запуска MapReduce задания. Дополнительно настроен размер контейнера для операций `map` (т.к. стандартный размер составляет 3072Mb, а обрабатываемые файлы меньше 1024Mb, значение изменено на 1024Mb), что значительно ускоряет стадию `map`.
+6. [*Доставка кода*][5] на удаленный сервер `make copy`.
+7. *Запуск приложения*.
 
 
-
-[1]:https://registry.opendata.aws/nyc-tlc-trip-records-pds/
-[2]:https://github.com/loverberg/portfolio/blob/main/HiveStarSchemaDataMart/dicts.hql
-[3]:https://github.com/loverberg/portfolio/blob/main/HiveStarSchemaDataMart/fact_table.hql
-[4]:https://github.com/loverberg/portfolio/blob/main/HiveStarSchemaDataMart/put_in_fact_table.hql
-[5]:https://github.com/loverberg/portfolio/blob/main/HiveStarSchemaDataMart/view.hql
-[6]:https://github.com/loverberg/portfolio/blob/main/HiveStarSchemaDataMart/run.sh
-[7]:https://github.com/loverberg/portfolio/blob/main/HiveStarSchemaDataMart/rebuld.sh
+[1]:https://github.com/loverberg/portfolio/blob/main/MapReduceAgg/download.sh
+[2]:https://github.com/loverberg/portfolio/blob/main/MapReduceAgg/mapper.py
+[3]:https://github.com/loverberg/portfolio/blob/main/MapReduceAgg/reducer.py
+[4]:https://github.com/loverberg/portfolio/blob/main/MapReduceAgg/run.sh
+[5]:https://github.com/loverberg/portfolio/blob/main/MapReduceAgg/Makefile

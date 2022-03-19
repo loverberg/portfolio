@@ -21,4 +21,4 @@
 [6]:https://github.com/loverberg/skillsDS
 [7]:https://github.com/loverberg/portfolio/tree/main/HiveStarSchemaDataMart
 [8]:https://github.com/loverberg/portfolio/tree/main/MapReduceAgg
-{9]:https://github.com/loverberg/portfolio/tree/main/Airflow/cbr_to_greenplum
+[9]:https://github.com/loverberg/portfolio/tree/main/Airflow/cbr_to_greenplum

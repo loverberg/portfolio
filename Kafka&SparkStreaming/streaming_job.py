@@ -68,15 +68,15 @@ def main(spark: SparkSession):
 
     # считаем витрину
     mart = df.groupBy('payment_type', f.weekofyear('tpep_pickup_datetime').alias('week')).agg(
-        f.avg(f.col('tolls_amount')).alias('avg_tolls_amount'),
-        (f.avg(f.col('tip_amount')) / f.avg(f.col('tolls_amount'))).alias('tip_ratio')) \
+        f.avg(f.col('total_amount')).alias('avg_total_amount'),
+        (f.sum(f.col('tip_amount')) / f.sum(f.col('total_amount'))).alias('tip_ratio')) \
         .join(
         other=create_dict(spark, dim_columns, payment_rows),
         on=f.col('payment_type') == f.col('id'),
         how='inner') \
-        .select(f.col('week'), f.col('name'), f.col('avg_tolls_amount'), f.col('tip_ratio')) \
+        .select(f.col('week'), f.col('name'), f.col('avg_total_amount'), f.col('tip_ratio')) \
         .orderBy(f.col('name'), f.col('week')) \
-        .select(to_json(struct("name", "cnt", "dt")).alias('value'))
+        .select(to_json(struct('week', 'name', 'avg_total_amount', 'tip_ratio')).alias('value'))
 
     # использую для отладки
     # writer = mart \

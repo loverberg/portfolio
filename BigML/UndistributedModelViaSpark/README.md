@@ -9,4 +9,4 @@
 так как мы будем обрабатывать сразу серии, и плюсом является то, 
 что pandas серии могут быть легко сконвертированы в numpy array или в tensor.
 
-пример реализации [*Spark_UDF*][https://github.com/loverberg/portfolio/blob/main/BigML/UndistributedModelViaSpark/Spark%20UDF.ipynb]
+пример реализации [*Spark_UDF*]:[https://github.com/loverberg/portfolio/blob/main/BigML/UndistributedModelViaSpark/Spark%20UDF.ipynb]

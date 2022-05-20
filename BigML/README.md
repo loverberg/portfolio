@@ -6,5 +6,5 @@
 
 
 [1]:https://github.com/loverberg/portfolio/tree/main/BigML/SparkPipelineModel
-[2]:
+[2]:https://github.com/loverberg/portfolio/tree/main/BigML/UndistributedModelViaSpark
 

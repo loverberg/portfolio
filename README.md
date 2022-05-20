@@ -12,6 +12,7 @@
 | E-commerce. Выявление профилей потребителей                | *Целью исследования* является анализ пользовательского опыта в интернет-магазине товаров для дома и быта «Пока все ещё тут» для увеличения продаж и создания индивидуального подхода к потребителю          | `Pandas` `Numpy` `PyMystem` `Matplotlib` `Seaborn` `Scipy` `EDA` `лемматизация` `классификация` `проверка статистических гипотез` `продуктовые метрики`        | [DataAnalyst.YandexPraktikum][4] 
 | NLP: RNN + API + Docker + Oracle_Cloud                     | RNN для классификации слов, преобразована в функцию, принимающая запросы, и возвращающая результат прогноза. В свою очередь, функция использована для сервера API (бекенда) и размещена в контейнерe Docker | `Torch` `FastAPI` `Docker` `RNN` `NLP` `OracleCloud`                                                                                                           | [MLOps.DockerRNN][5]            |
 | Автоматизированный инструмент для анализа DS-вакансий      | Комплексный инструмент для анализа вакансий Data Science (DataEngineer, MLEngineer, DataAnalyst), размещенных на портале HeadHunter, построен с поддержкой контейнеризации Docker                           | `API` `Docker` `regression` `EDA` `DataViz`                                                                                                                    | [DataAnalyst.SkillsDS][6]       |
+| Big Data Machine Learning with Spark    | 1: Идентификация ботов среди пользовательских сессий `Pipeline`. 2: Применение нераспределенных моделей машинного обучения на больших данных | `SparkML` `pandas UDF` `Pipeline` `pickle` `Sklearn` `GBTC` | [DataEngineer.BigML][11]       |
 
 
 [1]:https://github.com/loverberg/portfolio/tree/main/BigDataMTC
@@ -24,3 +25,4 @@
 [8]:https://github.com/loverberg/portfolio/tree/main/MapReduceAgg
 [9]:https://github.com/loverberg/portfolio/tree/main/Airflow/cbr_to_greenplum
 [10]:https://github.com/loverberg/portfolio/tree/main/Kafka%26SparkStreaming
+[11]:https://github.com/loverberg/portfolio/tree/main/BigML

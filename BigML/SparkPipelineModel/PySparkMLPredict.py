@@ -2,7 +2,6 @@ import argparse
 
 from pyspark.ml import PipelineModel
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col
 
 MODEL_PATH = 'spark_ml_model'
 

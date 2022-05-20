@@ -38,10 +38,10 @@ model_path - путь куда будет сохранена модель
 
 ---
 
-    - python PySparkMLFit.py --data_path=session-stat.parquet --model_path=spark_ml_model
+    - python PySparkMLFit.py --data_path=data/session-stat.parquet --model_path=spark_ml_model
 #### OR
 
-    - spark-submit PySparkMLFit.py --data_path=session-stat.parquet --model_path=spark_ml_model
+    - spark-submit PySparkMLFit.py --data_path=data/session-stat.parquet --model_path=spark_ml_model
 ---
 3. Применение модели, задача должна загружать модель, применять ее к указанному датасету и сохранять результат предсказаний в parquet формат содержащий два атрибута - [session_id, prediction].
 
@@ -56,9 +56,9 @@ model_path - путь к модели |
 result_path - output
 
 ---
-    python PySparkMLPredict.py --data_path=test.parquet --model_path=spark_ml_model --result_path=result
+    python PySparkMLPredict.py --data_path=data/test.parquet --model_path=spark_ml_model --result_path=result
 #### OR
-    spark-submit PySparkMLPredict.py --data_path=test.parquet --model_path=spark_ml_model --result_path=result
+    spark-submit PySparkMLPredict.py --data_path=data/test.parquet --model_path=spark_ml_model --result_path=result
 ---
 
 

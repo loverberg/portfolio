@@ -35,6 +35,7 @@
 
 data_path - путь к файлу с данными |
 model_path - путь куда будет сохранена модель
+
 ---
 
     - python PySparkMLFit.py --data_path=session-stat.parquet --model_path=spark_ml_model
@@ -53,6 +54,7 @@ model_path - путь куда будет сохранена модель
 data_path - путь к файлу с данными |
 model_path - путь к модели | 
 result_path - output
+
 ---
     python PySparkMLPredict.py --data_path=test.parquet --model_path=spark_ml_model --result_path=result
 #### OR

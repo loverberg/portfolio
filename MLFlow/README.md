@@ -61,7 +61,7 @@ ___
 ### Ход работы:
 1. Создание Pipeline модели и ее версионирование 
 
-    Реализация: [*PySparkMLFit.py*][] 
+    Реализация: [*PySparkMLFit.py*][1] 
 ---
 
     python PySparkFit.py  --train=data/train.parquet --test=data/test.parquet
@@ -75,7 +75,7 @@ ___
 
 3. Загрузка и запуск *Production* модели
     
-    Реализация: [*PySparkPredict.py*][] 
+    Реализация: [*PySparkPredict.py*][2] 
 
 
 ---
@@ -85,5 +85,5 @@ ___
 ---
 
 
-[1]:
-[2]:
+[1]:https://github.com/loverberg/portfolio/blob/main/MLFlow/PySparkFit.py
+[2]:https://github.com/loverberg/portfolio/blob/main/MLFlow/PySparkPredict.py

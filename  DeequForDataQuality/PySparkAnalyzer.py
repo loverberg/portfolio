@@ -14,23 +14,23 @@ def _analyzer(spark, df):
     :return: AnalysisRunner
     """
     return AnalysisRunner(spark) \
-                    .onData(df) \
-                    .addAnalyzer(Size()) \
-                    .addAnalyzer(Completeness("id")) \
-                    .addAnalyzer(Completeness("vendor_code")) \
-                    .addAnalyzer(Completeness("name")) \
-                    .addAnalyzer(Completeness("type")) \
-                    .addAnalyzer(Completeness("label")) \
-                    .addAnalyzer(Completeness("price")) \
-                    .addAnalyzer(Completeness("discount")) \
-                    .addAnalyzer(Completeness("available_count")) \
-                    .addAnalyzer(Completeness("preorder_count")) \
-                    .addAnalyzer(Uniqueness(["id"])) \
-                    .addAnalyzer(Compliance("discount less than 0", 'discount<0')) \
-                    .addAnalyzer(Compliance("discount great than 100", 'discount>100')) \
-                    .addAnalyzer(Compliance("available count less than 0", 'available_count<0')) \
-                    .addAnalyzer(Compliance("preorder count less than 0", 'preorder_count<0')) \
-                    .run()
+        .onData(df) \
+        .addAnalyzer(Size()) \
+        .addAnalyzer(Completeness("id")) \
+        .addAnalyzer(Completeness("vendor_code")) \
+        .addAnalyzer(Completeness("name")) \
+        .addAnalyzer(Completeness("type")) \
+        .addAnalyzer(Completeness("label")) \
+        .addAnalyzer(Completeness("price")) \
+        .addAnalyzer(Completeness("discount")) \
+        .addAnalyzer(Completeness("available_count")) \
+        .addAnalyzer(Completeness("preorder_count")) \
+        .addAnalyzer(Uniqueness(["id"])) \
+        .addAnalyzer(Compliance("discount less than 0", 'discount<0')) \
+        .addAnalyzer(Compliance("discount great than 100", 'discount>100')) \
+        .addAnalyzer(Compliance("available count less than 0", 'available_count<0')) \
+        .addAnalyzer(Compliance("preorder count less than 0", 'preorder_count<0')) \
+        .run()
 
 
 def process(spark, data_path, report_path):

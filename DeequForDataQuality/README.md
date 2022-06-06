@@ -45,9 +45,9 @@ ___
 
 *сохраненный результат выполнения:*
  
- +-------+--------------------+------------+--------+
+
 | entity|            instance|        name|   value|
-+-------+--------------------+------------+--------+
+|:------|:-------------------|-----------:|-------:|
 | Column|discount great th...|  Compliance|     0.0|
 | Column|available count l...|  Compliance|   0.001|
 | Column|         vendor_code|Completeness|     0.9|
@@ -63,6 +63,5 @@ ___
 | Column|                  id|Completeness|     1.0|
 | Column|preorder count le...|  Compliance|     0.0|
 | Column|                name|Completeness|     1.0|
-+-------+--------------------+------------+--------+
 
 [1]:https://github.com/loverberg/portfolio/blob/main/%20DeequForDataQuality/PySparkAnalyzer.py
